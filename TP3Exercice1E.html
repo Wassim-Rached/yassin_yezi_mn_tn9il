@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta charset="UTF_8" />
+    <title>TP3 : Exercice 1 JS</title>
+    <style>
+      table,
+      tr,
+      td {
+        border-collapse: collapse;
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        Operation sur les chaines de caractères
+      </caption>
+      <tr>
+        <th>NOM</th>
+        <td id="o1"></td>
+      </tr>
+      <tr>
+        <th>Prénom</th>
+        <td id="o2"></td>
+      </tr>
+      <tr>
+        <th>NOM et prénom</th>
+        <td id="o3"></td>
+      </tr>
+      <tr>
+        <th>DDN</th>
+        <td id="o4"></td>
+      </tr>
+      <tr>
+        <th>Recherche de Ben</th>
+        <td id="o5"></td>
+      </tr>
+      <tr>
+        <th>Taille</th>
+        <td id="o6"></td>
+      </tr>
+      <tr>
+        <th>Votre Prénom en inverse</th>
+        <td id="o7"></td>
+      </tr>
+    </table>
+    <script>
+      let nom = prompt("nom", "ben rached");
+      let prenom = prompt("prenom", "wassim");
+      let ddn = prompt("ddn", "27/08/2003");
+      let nom_prenom = nom.concat(" ", prenom);
+
+      document.getElementById("o1").innerHTML = nom;
+      document.getElementById("o2").innerHTML = formatPrenom(prenom);
+      document.getElementById("o3").innerHTML = nom_prenom;
+      document.getElementById("o4").innerHTML = format_ddn(ddn);
+      document.getElementById("o5").innerHTML = RechercheBen(nom);
+      document.getElementById("o6").innerHTML = taille(nom_prenom);
+      document.getElementById("o7").innerHTML = inverser(prenom);
+
+      function taille(str) {
+        return str.length;
+      }
+
+      function RechercheBen(nom) {
+        // set the message
+        const message = nom.startsWith("ben")
+          ? "ben exists"
+          : "ben does not exist";
+        return message;
+      }
+      function inverser(str) {
+        return str.split("").reverse().join("");
+      }
+
+      function formatPrenom(prenom) {
+        return prenom.charAt(0).toUpperCase().concat(prenom.slice(1));
+      }
+
+      function format_ddn(ddn) {
+        let date = ddn.split("/");
+        return `<strong>Jour</strong> = ${ddn[0]} <strong>Mois</strong> = ${ddn[1]} <strong>Annee</strong> = ${ddn[2]}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TP3 : Exercice 2 JS</title>
+    <style>
+      legend {
+        font-weight: bold;
+      }
+    </style>
+    <script src="TP3Exercice2.js"></script>
+  </head>
+  <body>
+    <h2>Opérations sur un tableau de notes</h2>
+
+    <form name="f1">
+      <label>Saisir le nombre d'étudiants :</label>
+      <input type="number" name="txtN" min="5" max="20" value="5" required />
+      <button type="button" name="btnCreer" value="Créer tableau">
+        Créer tableau
+      </button>
+      <input type="reset" name="btninit" value="Initialiser" />
+      <br />
+      Contenu du tableau : <label id="lblTab"></label>
+      <fieldset>
+        <legend>Choisir une opération</legend>
+        <select name="lstop">
+          <option value="Afficher la liste des notes" selected>
+            Afficher la liste des notes
+          </option>
+          <option value="Nombres d'étudiants Admis">
+            Nombres d'étudiants Admis
+          </option>
+          <option value="Moyenne de la Classe">Moyenne de la Classe</option>
+          <option value="Max">Max des notes</option>
+          <option value="Nombres apparition d'une note">
+            Nombres apparition d'une note
+          </option>
+        </select>
+        Saisir la note à chercher :<input
+          type="number"
+          name="txtnotApp"
+          min="0"
+          max="20"
+          step="0.01"
+        />
+        Résultat : <input type="text" name="txtres" size="30" readonly />
+      </fieldset>
+    </form>
+    <script>
+      const lstop_dom = document.f1.lstop;
+
+      lstop_dom.addEventListener("change", () => {
+        const value = lstop_dom.value;
+
+        switch (value) {
+          case "Afficher la liste des notes":
+            break;
+
+          case "Nombres d'étudiants Admis":
+            break;
+
+          case "Moyenne de la Classe":
+            break;
+
+          case "Max":
+            break;
+
+          case "Afficher la liste des notes":
+            break;
+        }
+      });
+
+      function afficher() {}
+    </script>
+  </body>
+</html>

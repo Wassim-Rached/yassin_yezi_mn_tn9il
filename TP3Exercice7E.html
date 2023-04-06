@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TP3 : Exercice 7 JS</title>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const txtDate_dom = document.forms.f1.elements.txtDate;
+        const txtAge_dom = document.forms.f1.elements.txtAge;
+        const txtJours_dom = document.forms.f1.elements.txtJours;
+
+        txtAge_dom.value = null;
+        txtAge_dom.value = null;
+        txtJours_dom.value = null;
+
+        txtDate_dom.addEventListener("change", () => {
+          let date = new Date(txtDate_dom.value);
+          let now = new Date();
+          let age = now.getFullYear() - date.getFullYear();
+          let m = now.getMonth() - date.getMonth();
+          if (m < 0 || (m === 0 && now.getDate() < date.getDate())) {
+            age--;
+          }
+          txtAge_dom.value = age;
+
+          let nextBirthday = new Date(
+            now.getFullYear() + 1,
+            date.getMonth(),
+            date.getDate()
+          );
+          let diffTime = Math.abs(nextBirthday - now);
+          let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          txtJours_dom.value = diffDays;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h4 id="Le">Nous sommes le...</h4>
+    <form name="f1">
+      <label>Donnez votre date d'anniversaire</label>
+      <input type="date" name="txtDate" /><br />
+      <label>Age calculé</label>
+      <input type="text" name="txtAge" readonly /><br />
+      <!-- une fonctionnalité en bonus -->
+      <label>Nombre De Jours pour Célébrer votre Prochain anniversaire </label>
+      <input type="text" name="txtJours" readonly />
+    </form>
+  </body>
+</html>
